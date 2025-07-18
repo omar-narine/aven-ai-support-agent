@@ -1,9 +1,13 @@
 "use client";
 import {
   NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
   NavigationMenuItem,
   NavigationMenuLink,
   NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
 } from "@/components/ui/navigation-menu";
 import {
   Sheet,
@@ -13,7 +17,6 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
 import { Menu } from "lucide-react";
 import React from "react";
 
@@ -55,6 +58,7 @@ function Header() {
           <SheetTrigger asChild>
             <Button variant="ghost" size="icon">
               <Menu className="h-6 w-6" />
+              <span className="sr-only">Toggle menu</span>
             </Button>
           </SheetTrigger>
           <SheetContent side="right" className="w-[300px] sm:w-[400px]">
@@ -63,21 +67,18 @@ function Header() {
             </SheetHeader>
             <nav className="flex flex-col space-y-4 mt-8">
               {navigationItems.map((item) => (
-                <div>
-                  <a
-                    key={item.href}
-                    href={item.href}
-                    className="px-6 py-3 text-md hover:bg-gray-100 rounded-md transition-colors"
-                  >
-                    {item.label}
-                  </a>
-                  <Separator className="mt-3 mx-4" />
-                </div>
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="px-4 py-3 text-lg hover:bg-gray-100 rounded-md transition-colors"
+                >
+                  {item.label}
+                </a>
               ))}
-              <div className="pt-4">
+              <div className="pt-4 border-t">
                 <a
                   href="/signin"
-                  className="px-6 text-md hover:bg-gray-100 rounded-md transition-colors block"
+                  className="px-4 py-3 text-lg hover:bg-gray-100 rounded-md transition-colors block"
                 >
                   Sign In
                 </a>
