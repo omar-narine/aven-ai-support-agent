@@ -62,7 +62,7 @@ export function ChatPopup({ isOpen, onClose }: ChatPopupProps) {
         const aiMessage: Message = {
           id: (Date.now() + 1).toString(),
           text: "Thank you for your message! I'm a placeholder response. You can implement your AI model here by connecting to your API routes.",
-          sender: "ai",
+          sender: "chat-response",
           timestamp: new Date(),
         };
         setMessages((prev) => [...prev, aiMessage]);
