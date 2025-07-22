@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { ChatPopup } from "./_components/ChatPopup";
+import VapiWidget from "./_components/VapiWidget";
 
 export default function Home() {
   const [isChatOpen, setIsChatOpen] = useState(false);
@@ -46,6 +47,13 @@ export default function Home() {
 
         {/* Chat Popup */}
         <ChatPopup isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+
+        <div>
+          <VapiWidget
+            apiKey={env.VAPI_PRIVATE_API_KEY}
+            assistantId={env.VAPI_ASSISTANT_ID}
+          />
+        </div>
       </div>
     </div>
   );

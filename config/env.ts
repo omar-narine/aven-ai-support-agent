@@ -5,8 +5,10 @@ const logger = new Logger("Config:Env");
 
 // Schema for environment variables
 const envSchema = z.object({
-  NODE_ENV: z.string(),
-  NEXT_PUBLIC_APP_URL: z.string(),
+  PINECONE_API_KEY: z.string(),
+  VAPI_PRIVATE_API_KEY: z.string(),
+  VAPI_PUBLIC_API_KEY: z.string(),
+  VAPI_ASSISTANT_ID: z.string(),
 });
 
 // Function to validate environment variables
@@ -14,8 +16,10 @@ const validateEnv = () => {
   try {
     logger.info("Validating environment variables");
     const env = {
-      NODE_ENV: process.env.NODE_ENV,
-      NEXT_PUBLIC_APP_URL: process.env.NEXT_PUBLIC_APP_URL,
+      PINECONE_API_KEY: process.env.PINECONE_API_KEY,
+      VAPI_PRIVATE_API_KEY: process.env.VAPI_PRIVATE_API_KEY,
+      VAPI_PUBLIC_API_KEY: process.env.VAPI_PUBLIC_API_KEY,
+      VAPI_ASSISTANT_ID: process.env.VAPI_ASSISTANT_ID,
     };
     const parsed = envSchema.parse(env);
     logger.info("Environment variables validated successfully");
